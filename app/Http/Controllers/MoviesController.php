@@ -17,6 +17,10 @@ class MoviesController extends Controller
         //
     }
 
+    /*
+    * Get all movies
+    *
+    */
     public function index()
     {
         return response()->json([
@@ -26,6 +30,10 @@ class MoviesController extends Controller
         ], 200);
     }
 
+    /*
+    * Get only a movie by id
+    *
+    */
     public function get($id)
     {
         return response()->json([
@@ -35,6 +43,10 @@ class MoviesController extends Controller
         ], 200);
     }
 
+    /*
+    * Register a movie
+    *
+    */
     public function store(Request $request)
     {
         $data = $request->json()->all();
@@ -59,6 +71,10 @@ class MoviesController extends Controller
         ], 201);
     }
     
+    /*
+    * Update a movie by id
+    *
+    */
     public function update(Request $request, $id)
     {
         $data = $request->json()->all();
@@ -93,6 +109,10 @@ class MoviesController extends Controller
         ], 200);
     }
 
+    /*
+    * Delete a movie by id
+    *
+    */
     public function delete($id)
     {
         $movie = Movie::find($id);
