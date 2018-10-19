@@ -19,3 +19,4 @@ $router->get('/api/movies', 'MoviesController@index');
 $router->post('/api/movie', 'MoviesController@store');
 $router->get('/api/movie/{id}', 'MoviesController@get');
 $router->put('/api/movie/{id}', 'MoviesController@update');
+$router->delete('/api/movie/{id}', 'MoviesController@delete');
