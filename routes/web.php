@@ -15,8 +15,18 @@
 //     return $router->app->version();
 // });
 
-$router->get('/api/movies', 'MoviesController@index');
-$router->post('/api/movie', 'MoviesController@store');
-$router->get('/api/movie/{id}', 'MoviesController@get');
-$router->put('/api/movie/{id}', 'MoviesController@update');
-$router->delete('/api/movie/{id}', 'MoviesController@delete');
+$router->group(['prefix' => 'api/v1/'], function() use ($router) {
+    // Users
+    $router->get('users', 'UsersController@index');
+    $router->post('user', 'UsersController@store');
+    $router->get('user/{id}', 'UsersController@get');
+    $router->put('user/{id}', 'UsersController@update');
+    $router->delete('user/{id}', 'UsersController@delete');
+
+    // Movies
+    $router->get('movies', 'MoviesController@index');
+    $router->post('movie', 'MoviesController@store');
+    $router->get('movie/{id}', 'MoviesController@get');
+    $router->put('movie/{id}', 'MoviesController@update');
+    $router->delete('movie/{id}', 'MoviesController@delete');
+});
